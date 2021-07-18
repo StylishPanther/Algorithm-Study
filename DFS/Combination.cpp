@@ -11,44 +11,33 @@
 using namespace std;
 // Make the Combination
 
-int n, r;
+int n, r, ch[20];
+int num[20];
+int res[20];
 
-int num[16];
-int check[16];
-int res[16];
-void DFS (int l)
-{
-	
-	if(l == r)
+
+void dfs(int s, int L){
+
+	if(L==r)
 	{
-		for(int i = 0; i<r; i++)
-		{
-			printf("%d ", res[i]);
+		for(int j=0; j<L; j++){
+			printf("%d ", res[j]);
 		}
 		printf("\n");
 	}
-	
-	else
-	{
-		for(int i = 1; i<=n; i++)
-		{
-			if(check[i] == 0)
-			{
-				res[l] = num[i];
-				check[i] = 1;
-				DFS(l+1);
-				
-			}
+	else{
+		for(int i=s; i<n; i++){
+				res[L]=num[i+1];
+				dfs(i+1, L+1);
 		}
-		
 	}
 }
-int main ()
-{
-	cin >> n >> r;
+
+int main(){
+	scanf("%d %d", &n, &r);
 	
 	for (int i = 1; i<=n; i++) cin >> num[i];
 	
-	
-	DFS(0);
+	dfs(0, 0);
+	return 0;
 }
