@@ -34,10 +34,9 @@ void DFS(int v, int sum)
 		}
 	}
 }
+
 int main (void)
 {
-	
-	
 	cin >> n >> k;
 	for(int i = 0;i<k;i++) 
 	{
@@ -45,11 +44,9 @@ int main (void)
 		
 		cin >> a >> b >> c;
 		map[a][b] = c;
-		
 	}
 	
 	DFS(1,0);
 	
 	printf("%d\n",mini);
-
 }
