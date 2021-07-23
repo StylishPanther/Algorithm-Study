@@ -9,5 +9,7 @@
 3. [H-클린알파](https://softeer.ai/practice/info.do?eventIdx=1&psProblemId=423)
 4. [성적평균](https://softeer.ai/practice/info.do?eventIdx=1&psProblemId=389)
 5. [금고털이](https://softeer.ai/practice/info.do?eventIdx=1&psProblemId=395)
+6. [우물 안 개구리](https://softeer.ai/practice/info.do?eventIdx=1&psProblemId=394)
+
 
 ### 
