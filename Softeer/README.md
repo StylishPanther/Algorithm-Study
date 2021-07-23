@@ -1,4 +1,4 @@
-#Softeer
+# Hyundai Softeer
 
 현대 Softeer 연습문제들의 소스 코드 및 해설을 적어놓은 문서입니다.
 
