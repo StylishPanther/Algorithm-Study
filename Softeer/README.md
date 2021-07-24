@@ -4,25 +4,27 @@ Hyundai Softeer 연습문제들의 소스 코드 및 해설을 적어놓은 문�
 
 ## Index
 
-1. 로봇이 지나간 거리 : [문제 해설](#1.-로봇이-지나간-거리), [문제 링크](https://softeer.ai/practice/info.do?eventIdx=1&psProblemId=577)
+1. 로봇이 지나간 거리 : [문제 해설](#로봇이-지나간-거리), [문제 링크](https://softeer.ai/practice/info.do?eventIdx=1&psProblemId=577)
 
-2. 스마트 물류 : [문제 해설](#2.-스마트물류), [문제 링크](https://softeer.ai/practice/info.do?eventIdx=1&psProblemId=414)
+2. 스마트 물류 : [문제 해설](#스마트물류), [문제 링크](https://softeer.ai/practice/info.do?eventIdx=1&psProblemId=414)
 
-3. H-클린알파 : [문제 해설](3.-H-클린알파), [문제 링크](https://softeer.ai/practice/info.do?eventIdx=1&psProblemId=423)
+3. H-클린알파 : [문제 해설](#h-클린알파), [문제 링크](https://softeer.ai/practice/info.do?eventIdx=1&psProblemId=423)
 
-4. 성적평균 : [문제 해설](4.-성적평균), [문제 링크](https://softeer.ai/practice/info.do?eventIdx=1&psProblemId=389)
+4. 성적평균 : [문제 해설](#성적평균), [문제 링크](https://softeer.ai/practice/info.do?eventIdx=1&psProblemId=389)
 
-5. 금고털이 : [문제 해설](5.-금고털이), [문제 링크](https://softeer.ai/practice/info.do?eventIdx=1&psProblemId=395)
+5. 금고털이 : [문제 해설](#금고털이), [문제 링크](https://softeer.ai/practice/info.do?eventIdx=1&psProblemId=395)
 
-6. 우물 안 개구리 : [문제 해설](6.-우물-안-개구리), [문제 링크](https://softeer.ai/practice/info.do?eventIdx=1&psProblemId=394) 
+6. 우물 안 개구리 : [문제 해설](#우물-안-개구리), [문제 링크](https://softeer.ai/practice/info.do?eventIdx=1&psProblemId=394) 
 
-7. 징검다리1 : [문제 해설](7.-징검다리1), [문제 링크](https://softeer.ai/practice/info.do?eventIdx=1&psProblemId=390)
+7. 징검다리1 : [문제 해설](#징검다리1), [문제 링크](https://softeer.ai/practice/info.do?eventIdx=1&psProblemId=390)
 
-8. 징검다리2 : [문제 해설](8.-징검다리2), [문제 링크](https://softeer.ai/practice/info.do?eventIdx=1&psProblemId=393)
+8. 징검다리2 : [문제 해설](#징검다리2), [문제 링크](https://softeer.ai/practice/info.do?eventIdx=1&psProblemId=393)
 
 ## 문제 해설
 
-### 1. 로봇이 지나간 거리
+2021.07.24 최신
+
+### 로봇이 지나간 거리
 
 문제에서 입력하는 명령어의 개수를 최소화 시키고 경로의 한 끝에서 다른 끝으로 이동을 하려면 BFS를 이용해야 함을 알 수 있다.
 
@@ -40,7 +42,7 @@ Hyundai Softeer 연습문제들의 소스 코드 및 해설을 적어놓은 문�
 4. 방향이 같아서 바로 갈 수 있는 길은 char형 Queue에 'A', 방향이 달라서 바로 갈 수 없는 길은 방향 탐색 후 'L', 'R' 을 push한 후 'A' push
 5. 탐색이 완료되면 char형 Queue를 출력한다.
 
-### 2. 스마트물류
+### 스마트물류
 
 간단한 형태의 완전 탐색 문제이다.
 
@@ -50,7 +52,7 @@ N이 1이상 20,000이하, 로봇이 잡을 수 있는 최대 거리는 10이고
 1. 입력받은 문자열에서 P를 찾으면 그 위치를 $r$이라고 했을 때  그 양 옆으로 $k$만큼의 거리$(r-k \leq r \leq r+k)$를 탐색 한다.
 2. 따로 할당해놓은 n의 크기를 가진 check 배열을 통해 이미 집은 물건인지 아닌지 확인하고 잡을 수 있을 때 1번의 탐색 반복문을 break한다. (연산량 감소)
 
-### 3. H 클린알파
+### H 클린알파
 
 메모이제이션과 모듈러 연산의 특징을 잘 이해해야 한다.
 
@@ -76,7 +78,7 @@ $$ 3.\space (a \space mod \space n  * b \space mod \space n) \space mod \space n
 
 4. 입력된 바이러스 값과 테이블을 곱하면서 모듈러 연산을 취해 총 바이러스의 수를 구한다.
 
-### 4. 성적평균
+### 성적평균
 
 간단한 평균문제지만 $1 \leq N \leq 10^6$이므로 그냥 2중 for문을 돌리면 시간 초과가 발생한다.
 
@@ -86,7 +88,7 @@ $$ 3.\space (a \space mod \space n  * b \space mod \space n) \space mod \space n
 2. 인덱스 차이에서 발생하는 합의 차이와 사람 수의 차이값을 실수형 자료형(float, double)에 저장한다.
 3. printf("%.2lf) 의 형태로 출력해 반올림을 구현한다. 혹은 얻어낸 평균 값에 0.005를 더해서 출력해도 된다.
 
-### 5. 금고털이
+### 금고털이
 
 우선순위 큐(Priority Queue)를 이용하면 쉽게 해결 할 수 있다.
 
@@ -98,9 +100,8 @@ $$ 3.\space (a \space mod \space n  * b \space mod \space n) \space mod \space n
 
 3. 가방의 제한까지 순서대로 큐에서 pop을 하여 누적 합을 한다.
 
-### 6. 우물 안 개구리
+### 우물 안 개구리
 
- 
+### 징검다리1
 
-### 7. 징검다리1
-### 8. 징검다리2
+### 징검다리2
