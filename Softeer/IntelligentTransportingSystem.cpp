@@ -7,9 +7,6 @@
 
 using namespace std;
 
-#define INF 99999
-
-
 typedef struct light 
 {
 	int x[3];
@@ -34,9 +31,9 @@ struct state
 	}
 };
 
-LIGHT sign[12]=  { {{-1, 0, 1}, {0,1,0}, 'R',{'U','R','D'} } , {{0, -1, 0}, {-1,0,1}, 'U',{'L','U','R'}}, {{-1, 0, 1}, {0,-1,0}, 'L',{'D','L','U'}}, {{0, 1, 0}, {-1,0, 1}, 'D',{'L','D','R'}}, 
+LIGHT sign[12]=  { {{-1, 0, 1}, {0,1,0}, 'R',{'U','R','D'} } , {{0, -1, 0}, {-1,0,1}, 'U',{'L','U','R'}}, {{1, 0, -1}, {0,-1,0}, 'L',{'D','L','U'}}, {{0, 1, 0}, {-1,0, 1}, 'D',{'L','D','R'}}, 
 				{{-1, 0, INF }, {0,1, INF}, 'R',{'U','R','N'}},  {{0, -1, INF}, {-1,0,INF}, 'U', {'L','U','N'}} ,  {{0, 1, INF}, {-1, 0, INF}, 'L',{'L','D','N'}}, {{1, 0, INF}, {0,1,INF},'D', {'D','R','N'}},
-				{{0, 1, INF }, {1,0, INF}, 'R',{'R','D','N'}}, {{-1, 0, INF}, {0, 1,INF}, 'U',{'U','R','N'}}, {{0, -1, INF}, {-1, 0, INF}, 'L',{'L','U','N'}}, { {0, 1, INF}, {-1, 0, INF}, 'D', {'D','L','N'} } };
+				{{0, 1, INF }, {1,0, INF}, 'R',{'R','D','N'}}, {{-1, 0, INF}, {0, 1,INF}, 'U',{'U','R','N'}}, {{0, -1, INF}, {-1, 0, INF}, 'L',{'L','U','N'}}, { {0, 1, INF}, {-1, 0, INF}, 'D', {'L','D','N'} } };
 //LIGHT sign[12]=  { {{1, 0, 1}, {1,1,1}, 'R',{'U','R','D'} } , {{-1, -1, -1}, {-1,0,1}, 'U',{'L','U','R'}}, {{-1, 0, 1}, {-1,-1,-1}, 'L',{'D','L','U'}}, {{1, 1, 1}, {-1,0, 1}, 'D',{'R','D','L'}}, 
 //				{{1, 0, INF }, {1,1, INF}, 'R',{'U','R','N'}},  {{-1, -1, INF}, {-1,0,INF}, 'U', {'L','U','N'}} ,  {{1, 0, INF}, {-1, -1, INF}, 'L',{'L','D','N'}}, {{-1, -1, INF}, {0,1,INF},'D', {'D','L','N'}},
 //				{{0, -1, INF }, {1,1, INF}, 'R',{'R','D','N'}}, {{1, 1, INF}, {0, 1,INF}, 'U',{'U','R','N'}}, {{1, 0, INF}, {-1, -1, INF}, 'L',{'L','U','N'}}, { {1, -1, INF}, {1, 0, INF}, 'D', {'D','L','N'} } };
@@ -49,7 +46,7 @@ int n, second;
 int main ()
 {
 
-	//freopen("input.txt","rt",stdin);
+	freopen("input.txt","rt",stdin);
 	int ans = 0;
 	cin >> n >> second;
 	
@@ -75,12 +72,24 @@ int main ()
 	while(!q.empty())
 	{
 		state tmp = q.front();
-		q.pop();
-		if(tmp.time == second) break;
-		int cur_signal = tmp.time % 4;
 		
+		q.pop();
+		int cur_signal = tmp.time % 4;
+//		for (int i = 0; i< n; i++)
+//		{
+//			for(int j =0; j<n; j++)
+//			{
+//				printf("%d ",check[i][j]);
+//			}
+//			printf("\n");
+//		}
 		//printf("Xpos : %d Ypos : %d Indir-state : %c  indir_map : %c cur_time : %d\n",tmp.x , tmp.y, tmp.dir, map[cur_signal][tmp.x][tmp.y].indir ,tmp.time);
-		if(map[cur_signal][tmp.x][tmp.y].indir == tmp.dir) // 들어오는 차와 다음 신호가 같으면 
+		if(tmp.time == second) break;
+		
+		
+	
+		
+		if(map[cur_signal][tmp.x][tmp.y].indir == tmp.dir) // 들어오는 차와 다음 신호의 방향이  같으면 
 		{
 			for(int k = 0; k<3; k++) 
 			{
@@ -88,9 +97,10 @@ int main ()
 				int ypos = tmp.y + map[cur_signal][tmp.x][tmp.y].y[k];
 				char tdir = map[cur_signal][tmp.x][tmp.y].outdir[k];
 				int ttime = tmp.time;
+				//printf("Xpos : %d Ypos : %d Indir-state : %c  indir_map : %c outdir : %c cur_time : %d\n", xpos , ypos, map[cur_signal][tmp.x][tmp.y].indir,tmp.dir, tdir ,ttime);
 				
-				
-				if(xpos < 0 || ypos < 0 || xpos >= n || ypos >= n ) continue;
+				if(xpos < 0 || ypos < 0 || xpos >= n || ypos >= n || tdir =='N') continue;
+				//printf("Xpos : %d Ypos : %d Indir-state : %c  indir_map : %c outdir : %c cur_time : %d\n", xpos , ypos, map[cur_signal][tmp.x][tmp.y].indir,tmp.dir, tdir ,ttime);
 				//printf("Xpos : %d Ypos : %d outdir : %c cur_time : %d\n",xpos, ypos, tdir, ttime);
 				check[xpos][ypos] = 1;
 				q.push( state(xpos, ypos, tdir, ttime+1));
@@ -109,7 +119,7 @@ int main ()
 //		}
 //		printf("\n");
 //	}
-//	
+	
 	for (int i = 0; i< n; i++)
 	{
 		for(int j =0; j<n; j++)
