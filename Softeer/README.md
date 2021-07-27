@@ -20,6 +20,8 @@ Hyundai Softeer 연습문제들의 소스 코드 및 해설을 적어놓은 문�
 
 8. 징검다리2 : [문제 해설](#징검다리2), [문제 링크](https://softeer.ai/practice/info.do?eventIdx=1&psProblemId=393)
 
+9. 차세대 지능형 교통시스템 : [문제 해설](#차세대-지능형-교통시스템), [문제 링크](https://softeer.ai/practice/info.do?eventIdx=1&psProblemId=580)
+
 ## 문제 해설
 
 2021.07.24 최신
@@ -121,3 +123,5 @@ $$ 3.\space (a \space mod \space n  * b \space mod \space n) \space mod \space n
 N이 3,000이므로 2중 for문을 이용해서 구현했다.
 
 ### 징검다리2
+
+### 차세대 지능형 교통시스템
