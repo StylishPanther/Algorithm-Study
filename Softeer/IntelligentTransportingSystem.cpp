@@ -46,7 +46,7 @@ int n, second;
 int main ()
 {
 
-	freopen("input.txt","rt",stdin);
+	//freopen("input.txt","rt",stdin);
 	int ans = 0;
 	cin >> n >> second;
 	
