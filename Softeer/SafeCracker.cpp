@@ -10,7 +10,6 @@
 
 using namespace std;
 
-#define SOFTEER_SAFECRACKER
 struct jewel
 {
 	int weight;
@@ -59,4 +58,4 @@ int main ()
 	
 	cout << maxi << endl;
 }
-#endif
+
