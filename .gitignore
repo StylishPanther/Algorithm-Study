@@ -1,0 +1,13 @@
+## Lee Jin Ho ##
+## Date : 2022.03.14
+## Brief : custom git ignore setting
+
+
+# VisualStudioCode 
+/.vscode
+
+# Windows Installer files
+*.exe
+*.json
+
+# End of File
